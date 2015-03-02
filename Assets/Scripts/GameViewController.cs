@@ -20,4 +20,11 @@ public class GameViewController : MonoBehaviour {
 	public void NextTurnButtonPressed() {
 		ManagerManager.Instance.GetManager<GameManager>().GotoNextTurn();
 	}
+
+	// TODO: action idx stuff is temporary.
+	public void ActionButtonPressed(int actionIdx) {
+		GameManager gameManager = ManagerManager.Instance.GetManager<GameManager>();
+
+		gameManager.PerformAction(actionIdx);
+	}
 }

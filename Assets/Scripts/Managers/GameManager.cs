@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : AbstractManager {
+
+	[SerializeField]
+	List<AbstractAction> availableActions;
 
 	public delegate void NextTurnDelegate();
 	public NextTurnDelegate notifyNextTurn;
@@ -16,5 +20,10 @@ public class GameManager : AbstractManager {
 	public void GotoNextTurn() {
 		this.currentTurn += 1;
 		this.notifyNextTurn();
+	}
+
+	// TODO: action idx stuff is temporary.
+	public void PerformAction(int actionIdx) {
+		availableActions[actionIdx].PerformAction();
 	}
 }
